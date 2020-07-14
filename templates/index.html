@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Size Fit ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Predict Size Fit</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+	<label for="collection_name">Collection Name:</label>
+	<select name="collection_name" id="collection_name">
+	  <option value="Seamless Top Fit">Seamless Top Fit</option>
+	  <option value="Seamless Bottoms Fit">Seamless Bottoms Fit</option>
+	  <option value="Bra Top">Bra Top</option>
+	  <option value="Lounge Top Fit">Lounge Top Fit</option>
+	</select>
+	<br><br>
+    	<input type="text" name="user_weight" placeholder="Your Weight (kg)" required="required" />
+        <input type="text" name="user_height" placeholder="Your Height (cm)" required="required" />
+	<input type="text" name="user_age" placeholder="Your Age (years)" required="required" /><br><br>
+	<label for="tummy_shape">Tummy Shape:</label>
+	<select name="tummy_shape" id="tummy_shape">
+	  <option value="Average">Average</option>
+	  <option value="Curvier">Curvier</option>
+	  <option value="Flatter">Flatter</option>
+	</select>
+	<br><br>
+	<label for="hip_shape">Hip Shape:</label>
+	<select name="hip_shape" id="hip_shape">
+	  <option value="Average">Average</option>
+	  <option value="Wider">Wider</option>
+	  <option value="Straighter">Straighter</option>
+	</select>
+	<br><br>
+	<label for="size_preference">Size Preference:</label>
+	<select name="size_preference" id="size_preference">
+	  <option value="Average">Average</option>
+	  <option value="Very Tight">Very Tight</option>
+	  <option value="Tight">Tight</option>
+	  <option value="Slightly Tight">Slightly Tight</option>
+	  <option value="Slightly Loose">Slightly Loose</option>
+	  <option value="Loose">Loose</option>
+	  <option value="Looser">Looser</option>
+	</select>
+	<br><br>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text1 }}<br>
+   {{ prediction_text2 }}
+
+ </div>
+
+
+</body>
+</html>
